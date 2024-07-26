@@ -58,18 +58,18 @@ print('Продукт с наибольшей выручкой:', max(total_sale
 print('День с наибольшей суммой продаж:', max(sales_over_time, key=sales_over_time.get))
 
 # Построение графика общей суммы продаж по каждому продукту.
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 11))
 plt.bar(total_sales_per_product.keys(), total_sales_per_product.values())
-plt.title('график общей суммы продаж по каждому продукту')
+plt.title('График общей суммы продаж по каждому продукту')
 plt.xlabel('Название продукта')
 plt.ylabel('Сумма продаж')
 plt.xticks(rotation=45)
 plt.savefig('total_sales_per_product.png')
 
 # Построение графика общей суммы продаж по дням.
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 8))
 plt.plot(sales_over_time.keys(), sales_over_time.values())
-plt.title('график общей суммы продаж по дням')
+plt.title('График общей суммы продаж по дням')
 plt.xlabel('Дата')
 plt.ylabel('Сумма продаж')
 plt.xticks(rotation=45)
