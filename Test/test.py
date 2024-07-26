@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 def read_sales_data(file_path):
     """Принимает путь к файлу и возвращает список продаж. Продажи в свою очередь являются словарями с ключами
     product_name, quantity, price, date."""
@@ -53,3 +56,21 @@ total_sales_per_product = total_sales_per_product(sales)
 sales_over_time = sales_over_time(sales)
 print('Продукт с наибольшей выручкой:', max(total_sales_per_product, key=total_sales_per_product.get))
 print('День с наибольшей суммой продаж:', max(sales_over_time, key=sales_over_time.get))
+
+# Построение графика общей суммы продаж по каждому продукту.
+plt.figure(figsize=(10, 6))
+plt.bar(total_sales_per_product.keys(), total_sales_per_product.values())
+plt.title('график общей суммы продаж по каждому продукту')
+plt.xlabel('Название продукта')
+plt.ylabel('Сумма продаж')
+plt.xticks(rotation=45)
+plt.savefig('total_sales_per_product.png')
+
+# Построение графика общей суммы продаж по дням.
+plt.figure(figsize=(10, 6))
+plt.plot(sales_over_time.keys(), sales_over_time.values())
+plt.title('график общей суммы продаж по дням')
+plt.xlabel('Дата')
+plt.ylabel('Сумма продаж')
+plt.xticks(rotation=45)
+plt.savefig('total_sales_per_day.png')
